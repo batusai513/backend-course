@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Create new Task
+  body
+    form(action="/categories" method="POST")
+      div
+        label(for="title") nombre
+        input#title(type="text" name="title")
+      div
+        label(for="color") Color
+        input#color(type="text" name="color")
+      div
+        button.btn.btn-primary(type='submit') Crear categoria

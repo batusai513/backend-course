@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+  body
+    h1= user.email
+  p#users
+  form(action="/sessions?_method=DELETE" method="post")
+    button.btn.btn-primary(type='submit') Log out
+  script(src="/socket.io/socket.io.js")
+  if user.id
+    script.
+      var socket = io.connect(window.location.origin, { query: 'loggedUser=#{user.id}' });
+      socket.on('count_updated', function onUpdate({ count }) {
+        document.querySelector('#users').innerHTML = count;
+      });
+
+      socket.on('new_task', function onNewTask(data) {
+        console.warn(data);
+      })
+

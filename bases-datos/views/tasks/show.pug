@@ -1,0 +1,12 @@
+doctype
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title
+  body
+    h1= task.description
+    p
+      strong Autor
+      span= task.user.email
+    p= task.createdAt
+    p= task.updatedAt
